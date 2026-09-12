@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>第26届金相大会 · 记忆背诵</title>
+<title>金相大会比赛一背诵版 · 佛山大学</title>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://cdn.jsdelivr.net/npm/@fontsource-variable/noto-sans-sc@5.2.10/index.css" rel="stylesheet">
 <style>
 :root{
-  --bg:#14161a;--surface:#1c1f25;--surface2:#23272e;--border:rgba(255,255,255,.09);
+  --bg:#1e0f14;--surface:#2c151d;--surface2:#3a1c26;--border:rgba(255,255,255,.09);
   --text:rgba(255,255,255,.88);--muted:rgba(255,255,255,.55);--faint:rgba(255,255,255,.35);
-  --accent:#e8a04a;--accent-soft:rgba(232,160,74,.14);
+  --accent:#d4577a;--accent-soft:rgba(212,87,122,.15);
   --ok:#4cc38a;--bad:#e5484d;--warn:#f5a623;--info:#5aa9e6;
   --radius:14px;--radius-s:10px;
 }
@@ -23,7 +23,7 @@ header.top h1 span{color:var(--accent)}
 header.top p{font-size:13px;color:var(--muted);margin-top:4px}
 .tabs{display:flex;gap:6px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px}
 .tabs button{height:34px;padding:0 16px;font-size:13px;color:var(--muted);background:transparent;border:none;border-radius:999px;cursor:pointer;transition:all .15s}
-.tabs button.active{background:var(--accent);color:#1a1206;font-weight:500}
+.tabs button.active{background:var(--accent);color:#fff;font-weight:500}
 
 /* stats bar */
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:18px}
@@ -52,7 +52,7 @@ header.top p{font-size:13px;color:var(--muted);margin-top:4px}
 .qw .qn{color:var(--accent);font-weight:600;flex-shrink:0;font-size:12px;margin-top:2px}
 .qw .qt{color:var(--text)}
 .qw .qh{color:var(--faint);font-size:12px}
-.flipbtn{height:42px;padding:0 32px;font-size:14px;font-weight:500;color:#1a1206;background:var(--accent);border:none;border-radius:999px;cursor:pointer;transition:filter .15s}
+.flipbtn{height:42px;padding:0 32px;font-size:14px;font-weight:500;color:#fff;background:var(--accent);border:none;border-radius:999px;cursor:pointer;transition:filter .15s}
 .flipbtn:hover{filter:brightness(1.1)}
 .answers{display:none}
 .answers.show{display:block}
@@ -80,6 +80,13 @@ header.top p{font-size:13px;color:var(--muted);margin-top:4px}
 
 /* browse mode (original) */
 #view-browse{display:none}
+.steelgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-bottom:12px}
+.steelgrid button{padding:10px 8px;font-size:13px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-s);cursor:pointer;transition:all .15s;line-height:1.4}
+.steelgrid button small{display:block;color:var(--faint);font-size:11px}
+.steelgrid button:hover{border-color:var(--accent);color:var(--accent)}
+.steelgrid button.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.steelgrid button.active small{color:rgba(255,255,255,.75)}
+.gridtip{font-size:12px;color:var(--faint);margin-bottom:14px}
 #view-browse.show{display:block}
 .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
 .bar select{flex:1;min-width:220px;height:40px;padding:0 12px;font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-s);outline:none}
@@ -96,9 +103,9 @@ header.top p{font-size:13px;color:var(--muted);margin-top:4px}
 .qsec .qnum{font-size:12px;color:var(--accent);font-weight:600;letter-spacing:1px;margin-bottom:4px}
 .qsec .qtitle{font-size:15px;font-weight:500;line-height:1.5}
 .qsec .qhint{font-size:12px;color:var(--faint);margin-top:4px}
-.reveal{flex-shrink:0;height:34px;padding:0 18px;font-size:13px;font-weight:500;color:var(--accent);background:var(--accent-soft);border:1px solid rgba(232,160,74,.3);border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
-.reveal:hover{background:rgba(232,160,74,.25)}
-.reveal.open{background:var(--accent);color:#1a1206}
+.reveal{flex-shrink:0;height:34px;padding:0 18px;font-size:13px;font-weight:500;color:var(--accent);background:var(--accent-soft);border:1px solid rgba(212,87,122,.35);border-radius:999px;cursor:pointer;transition:background .15s,color .15s;white-space:nowrap}
+.reveal:hover{background:rgba(212,87,122,.28)}
+.reveal.open{background:var(--accent);color:#fff}
 .answer{max-height:0;overflow:hidden;transition:max-height .35s ease}
 .answer .inner{padding:14px 18px 18px;border-top:1px solid var(--border);font-size:13.5px;color:var(--muted);line-height:1.8}
 .answer .inner b{color:var(--text);font-weight:500}
@@ -132,10 +139,18 @@ footer .reset{color:var(--bad);cursor:pointer;text-decoration:underline;margin-l
 <body>
 <div class="wrap">
   <header class="top">
-    <div>
-      <h1>第<span>26</span>届金相大会 · 记忆背诵</h1>
+    <div style="display:flex;align-items:center;gap:12px">
+      <svg width="52" height="52" viewBox="0 0 100 100" aria-label="佛山大学校标">
+        <circle cx="50" cy="50" r="47" fill="none" stroke="#d4577a" stroke-width="4"/>
+        <circle cx="50" cy="50" r="33" fill="none" stroke="#d4577a" stroke-width="2.5"/>
+        <path d="M50 30 C42 42 40 50 44 58 C46 52 49 49 50 47 C51 49 54 52 56 58 C60 50 58 42 50 30 Z" fill="#d4577a"/>
+        <path d="M50 47 C46 55 44 62 50 70 C56 62 54 55 50 47 Z" fill="#d4577a" opacity=".75"/>
+        <text x="50" y="84" text-anchor="middle" font-size="9" fill="#d4577a" font-family="sans-serif">FOSHAN UNIV. 1958</text>
+      </svg>
+      <div>
+      <h1>金相大会比赛一<span>背诵版</span></h1>
       <p>间隔重复背诵：看卡片提示 → 默念五问答案 → 翻面核对 → 按记忆情况评分</p>
-    </div>
+    </div></div>
     <div class="tabs">
       <button id="tab-srs" class="active">背诵模式</button>
       <button id="tab-deck">掌握度</button>
@@ -193,11 +208,8 @@ footer .reset{color:var(--bad);cursor:pointer;text-decoration:underline;margin-l
   </div>
 
   <div id="view-browse">
-    <div class="bar">
-      <select id="sel"></select>
-      <button id="prev">← 上一题</button>
-      <button id="next">下一题 →</button>
-    </div>
+    <div class="steelgrid" id="steelGrid"></div>
+    <p class="gridtip">点击任一钢种即可查看该种类的全部内容</p>
     <div class="info">
       <div class="steel" id="steelName">—</div>
       <div class="item">硬度<b id="hardness">—</b></div>
@@ -207,7 +219,7 @@ footer .reset{color:var(--bad);cursor:pointer;text-decoration:underline;margin-l
     <div id="qlist"></div>
   </div>
 
-  <footer>内容来源：《26金相大会比赛一》 · 共 19 题 · 复习进度保存在本机浏览器<span class="reset" id="resetBtn">重置全部进度</span></footer>
+  <footer>内容来源：《26金相大会比赛一》 · 佛山大学 · 共 19 题 · 复习进度保存在本机浏览器<span class="reset" id="resetBtn">重置全部进度</span></footer>
 </div>
 
 <script>
@@ -625,50 +637,33 @@ function renderDeck(){
   }).join('');
 }
 
-/* ============ browse mode (original) ============ */
+/* ============ browse mode: free steel selection ============ */
 const $=id=>document.getElementById(id);
 let cur=0,opened={};
-function buildSel(){
-  DATA.forEach((d,i)=>{
-    const o=document.createElement('option');
-    o.value=i;o.textContent=(i+1)+'. '+d.s+' — '+d.h;
-    $('sel').appendChild(o);
+function buildGrid(){
+  $('steelGrid').innerHTML=DATA.map((d,i)=>
+    '<button data-i="'+i+'">'+d.s+'<small>'+d.h+' · '+d.pt+'</small></button>').join('');
+  $('steelGrid').querySelectorAll('button').forEach(b=>{
+    b.addEventListener('click',()=>render(+b.dataset.i));
   });
 }
 function render(i){
   cur=i;const d=DATA[i];
-  $('sel').value=i;
+  $('steelGrid').querySelectorAll('button').forEach((b,j)=>b.classList.toggle('active',j===i));
   $('steelName').textContent=d.s;
   $('hardness').textContent=d.h;
   const pill=$('passPill');
   pill.textContent=d.pt;
   pill.className='pill '+d.pass;
   $('progress').textContent='第 '+(i+1)+' / '+DATA.length+' 题';
-  let h='';
-  d.qs.forEach((q,j)=>{
-    const key=i+'-'+j,isOpen=!!opened[key];
-    h+='<div class="qsec"><div class="qhead"><div><div class="qnum">Q'+(j+1)+'</div>'+
-       '<div class="qtitle">'+q.t+'</div><div class="qhint">💭 默念提示：'+q.h+'</div></div>'+
-       '<button class="reveal'+(isOpen?' open':'')+'" data-key="'+key+'">'+(isOpen?'收起答案':'看答案')+'</button></div>'+
-       '<div class="answer'+(isOpen?' open':'')+'" id="ans-'+key+'"><div class="inner">'+q.a+'</div></div></div>';
-  });
-  $('qlist').innerHTML=h;
-  $('qlist').querySelectorAll('.reveal').forEach(b=>{
-    b.addEventListener('click',()=>{
-      const key=b.dataset.key,ans=$('ans-'+key);
-      const nowOpen=!opened[key];
-      opened[key]=nowOpen;
-      ans.classList.toggle('open',nowOpen);
-      b.classList.toggle('open',nowOpen);
-      b.textContent=nowOpen?'收起答案':'看答案';
-    });
-  });
+  $('qlist').innerHTML=d.qs.map((q,j)=>
+    '<div class="qsec"><div class="qhead"><div><div class="qnum">Q'+(j+1)+'</div>'+
+    '<div class="qtitle">'+q.t+'</div><div class="qhint">💭 默念提示：'+q.h+'</div></div></div>'+
+    '<div class="answer open"><div class="inner">'+q.a+'</div></div></div>').join('');
   window.scrollTo({top:0,behavior:'smooth'});
 }
-buildSel();
-$('sel').addEventListener('change',e=>render(+e.target.value));
-$('prev').addEventListener('click',()=>{if(cur>0)render(cur-1)});
-$('next').addEventListener('click',()=>{if(cur<DATA.length-1)render(cur+1)});
+buildGrid();
+render(0);
 
 /* reset */
 document.getElementById('resetBtn').addEventListener('click',()=>{
